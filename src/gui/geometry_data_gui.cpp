@@ -16,8 +16,8 @@ void geometry_data_gui::create_default_ball()
 {
   m_ball = std::make_unique<ball_data_gui> ();
   m_ball->set_pos (QPointF (0, 0));
-  m_ball->set_vx (4);
-  m_ball->set_vy (10);
+  m_ball->set_vx (80);
+  m_ball->set_vy (50);
 }
 
 ball_data_gui *geometry_data_gui::get_ball ()

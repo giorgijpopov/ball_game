@@ -7,14 +7,16 @@ HEADERS       = src/gui/game_process_view.h \
     src/kernel/constants.h \
     src/kernel/math_functions.h \
     src/kernel/future_cpp_features.h \
-    src/gui/geometry_data_gui.h
+    src/gui/geometry_data_gui.h \
+    src/gui/qt_svg_painter.h
 SOURCES       = src/main.cpp \
     src/gui/game_process_view.cpp \
     src/gui/ball_data_gui.cpp \
     src/gui/abstract_geom_object.cpp \
     src/gui/line_segment_object.cpp \
     src/kernel/math_functions.cpp \
-    src/gui/geometry_data_gui.cpp
+    src/gui/geometry_data_gui.cpp \
+    src/gui/qt_svg_painter.cpp
 
 QT += core gui
 QT += widgets

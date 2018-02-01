@@ -1,6 +1,7 @@
 #include "ball_data_gui.h"
 
 #include "src/kernel/constants.h"
+#include "src/gui/qt_svg_painter.h"
 
 #include <QPicture>
 #include <QPainter>
@@ -42,14 +43,8 @@ void ball_data_gui::set_vy (double vy)
 
 void ball_data_gui::paint (QPainter *painter)
 {
-  QPixmap pixmap;
-  pixmap.load (":/resourse/ball.svg");
-
-  QRectF sourse (QPointF (0, 0), QPointF (32, 32));
-  QRectF target (QPointF (m_pos.x () - 0.01, m_pos.y () - 0.01),
-                 QPointF (m_pos.x () + 0.1, m_pos.y () + 0.1));
-
-  painter->drawPixmap (target, pixmap, sourse);
+  qt_svg_painter svg_painter (":/resourse/ball.svg", painter, QSize (1, 1));
+  svg_painter.draw (m_pos);
 }
 
 void ball_data_gui::move_ball_at_time (double delta_t)

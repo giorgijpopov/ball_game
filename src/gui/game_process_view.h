@@ -18,8 +18,8 @@ class game_process_view : public QWidget
   double m_current_time = 0;
   double m_bottom = 0;
   double m_max_y = 0;
-  double m_width = 5;
-  double m_height = 5;
+  double m_width = 100;
+  double m_height = 100;
   rebound_data m_next_rebound;
   QLineF m_creating_line;
   bool m_line_is_creating = false;
