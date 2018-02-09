@@ -10,6 +10,8 @@ class geometry_data_gui;
 
 class game_process_view : public QWidget
 {
+  Q_OBJECT
+
   QTimer *m_timer = nullptr;
   geometry_data_gui *m_geom_data;
   double m_delta_time = 1.e-3;
@@ -34,6 +36,9 @@ public:
   QSize minimumSizeHint () const;
   QSize sizeHint () const;
 
+  void start_game ();
+
+  Q_SIGNAL void click_stop_game ();
 
 protected:
   void paintEvent (QPaintEvent *event);

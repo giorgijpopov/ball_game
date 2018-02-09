@@ -17,7 +17,6 @@ game_process_view::game_process_view (QWidget *parent, geometry_data_gui *geom_d
   m_timer = new QTimer (this);
   m_timer->setInterval (1);
   connect (m_timer, &QTimer::timeout, this, [this] { update_time (); });
-  m_timer->start ();
 }
 
 game_process_view::~game_process_view () = default;
@@ -76,13 +75,12 @@ void game_process_view::update_time ()
       QString str = QString("You climbed %1 meters").arg (m_max_y, 0, 'g', 2);
       if (QMessageBox::information (this, "You Lose", str, QMessageBox::Reset, QMessageBox::Cancel)
           == QMessageBox::Reset)
-        {
-          m_geom_data->clear_all_objects ();
-          calculate_rebound ();
-          m_max_y = 0;
-        }
+        start_game ();
       else
-        exit (1);
+        {
+          m_timer->stop ();
+          Q_EMIT click_stop_game ();
+        }
 
       return;
     }
@@ -98,6 +96,15 @@ QSize game_process_view::minimumSizeHint () const
 QSize game_process_view::sizeHint () const
 {
   return QSize (1000, 1000);
+}
+
+void game_process_view::start_game ()
+{
+  m_current_time = 0;
+  m_geom_data->clear_all_objects ();
+  calculate_rebound ();
+  m_max_y = 0;
+  m_timer->start ();
 }
 
 QPointF game_process_view::map_to_scene (QPointF p)
