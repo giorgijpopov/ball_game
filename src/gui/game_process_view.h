@@ -10,8 +10,6 @@ class geometry_data_gui;
 
 class game_process_view : public QWidget
 {
-  Q_OBJECT
-
   QTimer *m_timer = nullptr;
   geometry_data_gui *m_geom_data;
   double m_delta_time = 1.e-3;
@@ -28,14 +26,14 @@ class game_process_view : public QWidget
   void calculate_rebound ();
 
   QPointF map_to_scene (QPointF p);
+
+  void update_time ();
 public:
   game_process_view (QWidget *parent, geometry_data_gui *geom_data);
   ~game_process_view ();
   QSize minimumSizeHint () const;
   QSize sizeHint () const;
 
-public slots:
- void update_time ();
 
 protected:
   void paintEvent (QPaintEvent *event);

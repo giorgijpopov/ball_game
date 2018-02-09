@@ -16,7 +16,7 @@ game_process_view::game_process_view (QWidget *parent, geometry_data_gui *geom_d
 
   m_timer = new QTimer (this);
   m_timer->setInterval (1);
-  connect (m_timer, SIGNAL (timeout ()), this, SLOT (update_time ()));
+  connect (m_timer, &QTimer::timeout, this, [this] { update_time (); });
   m_timer->start ();
 }
 
