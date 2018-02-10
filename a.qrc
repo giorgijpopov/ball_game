@@ -4,5 +4,6 @@
      <file>resourse/aqua_ball.png</file>
      <file>resourse/basketball.png</file>
      <file>resourse/ball.svg</file>
+     <file>resourse/play_button.svg</file>
  </qresource>
  </RCC>

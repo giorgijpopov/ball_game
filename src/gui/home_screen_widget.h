@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QWidget>
-#include <QPushButton>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 class home_screen_widget : public QWidget
@@ -9,7 +9,7 @@ class home_screen_widget : public QWidget
   Q_OBJECT
 
   QVBoxLayout *m_layout;
-  QPushButton *m_start_button;
+  QToolButton *m_start_button;
 public:
   explicit home_screen_widget (QWidget *parent = 0);
   ~home_screen_widget ();

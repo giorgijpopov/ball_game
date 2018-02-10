@@ -12,6 +12,7 @@
 game_process_view::game_process_view (QWidget *parent, geometry_data_gui *geom_data)
   : QWidget (parent), m_geom_data (geom_data)
 {
+  resize (1000, 700);
   m_next_rebound = m_geom_data->get_first_rebound ();
 
   m_timer = new QTimer (this);

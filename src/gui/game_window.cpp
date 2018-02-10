@@ -9,6 +9,7 @@
 
 game_window::game_window (QWidget *parent) : QMainWindow (parent)
 {
+  resize (1000, 700);
   m_central_widget = new single_visibility_widget (this);
   m_geom_data = std::make_unique<geometry_data_gui> ();
 
